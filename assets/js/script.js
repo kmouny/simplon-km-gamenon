@@ -70,7 +70,7 @@ function validateForm(all_input, all_error) {
         all_error[2].style.display = "block";
     } else if (all_input[3].value === "") {
         all_error[3].style.display = "block";
-    } else if (all_input[10].value === "" || all_input[11].value === "") {
+    } else if (!all_input[10].checked && !all_input[11].checked) {
         all_error[4].style.display = "block";
     } else {
         removeForm();

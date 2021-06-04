@@ -199,6 +199,7 @@ main section.modal form .form-sign:last-child {
 }
 
 main section.modal form input[type="text"],
+main section.modal form input[type="date"],
 main section.modal form input[type="email"] {
     border-radius: 8px;
     height: 2rem;
