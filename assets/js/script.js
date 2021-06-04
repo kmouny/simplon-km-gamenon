@@ -60,6 +60,23 @@ function removeForm() {
     btn_quitForm.addEventListener("click", changeAnotherDisplay);
 }
 
+function validateForm(all_input, all_error) {
+    all_error.forEach((e) => (e.style.display = "none"));
+    if (all_input[0].value === "") {
+        all_error[0].style.display = "block";
+    } else if (all_input[1].value === "") {
+        all_error[1].style.display = "block";
+    } else if (all_input[2].value === "") {
+        all_error[2].style.display = "block";
+    } else if (all_input[3].value === "") {
+        all_error[3].style.display = "block";
+    } else if (all_input[10].value === "" || all_input[11].value === "") {
+        all_error[4].style.display = "block";
+    } else {
+        removeForm();
+    }
+}
+
 function createForm() {
     modal.innerHTML = `<form>
                     <span class="close">&times;</span>
@@ -163,22 +180,6 @@ function createForm() {
     btn_close.addEventListener("click", changeAnotherDisplay);
     btn_submit.addEventListener("click", function (e) {
         e.preventDefault();
-        select_all_p_form.forEach((e) => (e.style.display = "none"));
-        if (select_all_input[0].value === "") {
-            select_all_p_form[0].style.display = "block";
-        } else if (select_all_input[1].value === "") {
-            select_all_p_form[1].style.display = "block";
-        } else if (select_all_input[2].value === "") {
-            select_all_p_form[2].style.display = "block";
-        } else if (select_all_input[3].value === "") {
-            select_all_p_form[3].style.display = "block";
-        } else if (
-            select_all_input[10].value === "" ||
-            select_all_input[11].value === ""
-        ) {
-            select_all_p_form[4].style.display = "block";
-        } else {
-            removeForm();
-        }
+        validateForm(select_all_input, select_all_p_form);
     });
 }
