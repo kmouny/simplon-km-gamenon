@@ -1,0 +1,406 @@
+@import url("normalize.css");
+
+@font-face {
+    font-family: "DM Sans";
+    src: url("/assets/fonts/DM_Sans/DMSans-Medium.ttf") format("truetype");
+}
+
+/* ********************************************** */
+/* *****************Mobile first *******************/
+/* ********************************************** */
+
+* {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+header nav {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+}
+
+header nav img.nav-burger {
+    display: block;
+    cursor: pointer;
+}
+
+header nav ul {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 0;
+}
+
+header nav ul li {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header nav ul li a {
+    color: #232323;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+header nav ul li a:hover {
+    background-color: #fe142f;
+    color: #fff;
+    border-radius: 8px;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+main section:first-child {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 20% 20% 50% 10%;
+    width: 90%;
+    background-color: #fff;
+}
+
+main section:first-child h1 {
+    line-height: 2.5rem;
+    grid-row: 1/2;
+}
+
+main section:first-child p {
+    font-weight: 400;
+    grid-row: 2/3;
+    font-size: 1rem;
+    line-height: 21px;
+}
+
+main section:first-child img {
+    width: 100%;
+    height: 100%;
+    grid-row: 3/4;
+}
+
+main section:first-child button,
+main section.modal form button {
+    background-color: #fe142f;
+    border-radius: 8px;
+    color: #fff;
+    padding: 0.5rem 0;
+    border: 0px;
+    width: 10rem;
+}
+
+main section:first-child button {
+    grid-row: 4/5;
+    margin-top: 20px;
+    margin: auto;
+}
+
+main section.modal form button.quitForm {
+    align-self: center;
+}
+
+main section.modal {
+    display: none;
+    justify-content: center;
+    z-index: 2;
+    background-color: #fff;
+}
+
+main section.modal form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    background-color: #232323;
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+    min-height: 450px;
+    justify-content: space-between;
+}
+
+main section.modal form p.good_validate_form {
+    text-align: center;
+    display: block;
+}
+
+main section.modal form .form-sign p.error_message {
+    color: #fe142f;
+    display: none;
+}
+
+main section.modal form .close {
+    display: inline-flex;
+    align-self: flex-end;
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right;
+}
+
+main section.modal form .close:hover,
+main section.modal form .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+main section.modal form .form-sign {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+main section.modal form .form-sign label,
+main section.modal form > p {
+    margin-bottom: 1rem;
+    color: #fff;
+    line-height: 2rem;
+}
+
+main section.modal form .form-radio {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 1;
+}
+
+main section.modal form .form-radio p {
+    width: 100%;
+    color: #fff;
+}
+
+main section.modal form .form-radio .sub-form-sign {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+main section.modal form .form-radio .sub-form-sign label {
+    margin-bottom: 0;
+}
+
+main section.modal form .form-sign:last-child {
+    align-self: center;
+}
+
+main section.modal form input[type="text"],
+main section.modal form input[type="email"] {
+    border-radius: 8px;
+    height: 2rem;
+}
+
+main section.modal form textarea {
+    padding: 0.5rem;
+    resize: none;
+    border-radius: 8px;
+}
+
+main section.modal form .form-sign .sub-form-sign {
+    display: block;
+    position: relative;
+    padding: 0 0 0 35px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+main section.modal form input[type="radio"],
+main section.modal form input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+}
+
+main section.modal form .form-radio .sub-form-sign .checkmark {
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+main section.modal form .sub-form-sign:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+main
+    section.modal
+    form
+    .sub-form-sign
+    input[type="checkbox"]:checked
+    ~ .checkmark,
+main
+    section.modal
+    form
+    .sub-form-sign
+    input[type="radio"]:checked
+    ~ .checkmark {
+    background-color: #279e7a;
+}
+
+main
+    section.modal
+    form
+    .sub-form-sign
+    input[type="radio"]:checked
+    ~ .checkmark {
+    border: thick double #232323;
+    margin: -4px 0 0 -5px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+main section.modal form .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+main
+    section.modal
+    form
+    .sub-form-sign
+    input[type="radio"]:checked
+    ~ .checkmark:after,
+main
+    section.modal
+    form
+    .sub-form-sign
+    input[type="checkbox"]:checked
+    ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+main section.modal form .form-checkbox .sub-form-sign .checkmark:after {
+    left: 3px;
+    top: 4px;
+    width: 7px;
+    height: 3px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+footer p {
+    color: #fe142f;
+}
+
+/* ********************************************** */
+/* *****************For Desktop *******************/
+/* ********************************************** */
+
+@media screen and (min-width: 761px) {
+    header nav {
+        width: 1200px;
+    }
+    header nav img.nav-burger {
+        display: none;
+    }
+
+    header nav ul {
+        display: flex;
+        width: 450px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header nav ul li {
+        margin-bottom: 0px;
+    }
+
+    main section:first-child {
+        width: 1200px;
+        background-color: #232323;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 50% 25% 25%;
+        margin: 0 1rem;
+        padding-left: 1.5em;
+    }
+
+    main section:first-child h1 {
+        grid-column: 1/3;
+        grid-row: 1/1;
+        color: #fff;
+        font-size: 7em;
+        line-height: 1.5em;
+        z-index: 1;
+        padding: 0px 134px 0px 23px;
+        display: flex;
+        align-items: center;
+    }
+
+    main section:first-child p {
+        grid-column: 1/2;
+        grid-row: 2/2;
+        color: #fff;
+        font-size: 1.7em;
+        line-height: 28px;
+        padding: 0px 23px;
+        display: flex;
+        align-items: center;
+    }
+
+    main section:first-child img {
+        grid-column: 2/4;
+        grid-row: 1/4;
+        width: 100%;
+        margin: 0;
+    }
+
+    main section:first-child button {
+        grid-column: 1/2;
+        grid-row: 3/3;
+        font-size: 1.5em;
+        width: 14rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 23px;
+    }
+
+    main section.modal form {
+        width: 450px;
+        margin-bottom: 60px;
+    }
+
+    footer p {
+        width: 1200px;
+        padding: 0 1rem;
+    }
+}
